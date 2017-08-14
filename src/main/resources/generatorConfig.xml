@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+			location="E:\repository\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.jar" />
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+						connectionURL="jdbc:oracle:thin:@123.56.114.18:1521:orcl" userId="whc"
+						password="Whc_2016" />
+		<javaModelGenerator targetPackage="com.whc.aip.storage.model.wahoce"
+							targetProject="src/main/java">
+			<!-- model增加指定父类-->
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.whc.aip.storage.dao.wahoce.mapper"
+						 targetProject="src/main/java" />
+		<javaClientGenerator targetPackage="com.whc.aip.storage.dao.wahoce"
+							 targetProject="src/main/java" type="XMLMAPPER" />
+		<!--
+		<table tableName="WHC_ORDER" domainObjectName="Order">
+			<property name="useActualColumnNames" value="true" />
+			<generatedKey column="ORDER_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="ORDER_ID" property="id"/>
+			<columnOverride column="MEMBER_ID" property="memberId"/>
+			<columnOverride column="WAHOCE_ID" property="wahoceId"/>
+			<columnOverride column="ORDER_START_DATE" property="startDate"/>
+			<columnOverride column="ORDER_END_DATE" property="endDate"/>
+			<columnOverride column="ORDER_CUSE_MEMO" property="cuseMemo"/>
+			<columnOverride column="ORDER_AMOUNT" property="amount"/>
+			<columnOverride column="PERS_ID" property="persId"/>
+			<columnOverride column="ORDER_STATUS" property="status"/>
+			<columnOverride column="ORDER_TYPE" property="type"/>
+			<columnOverride column="ORDER_CREATE_DATE" property="createDate"/>
+			<columnOverride column="ORDER_PAY_TYPE" property="payType"/>
+			<columnOverride column="ORDER_CUST_MEMO" property="custMemo"/>
+			<columnOverride column="ORDER_SALE_MEMO" property="saleMemo"/>
+			<columnOverride column="ORDER_CUST_NAME" property="custName"/>
+			<columnOverride column="ORDER_CUST_TEL" property="custTel"/>
+			<columnOverride column="ORDER_CUST_ADDR" property="custAddr"/>
+			<columnOverride column="ORDER_SOURCE" property="source"/>
+			<columnOverride column="ORDER_ID_NUMBER" property="idNumber"/>
+			<columnOverride column="ORDER_DEPOSIT1" property="deposit1"/>
+			<columnOverride column="ORDER_TOTAL_AMOUNT" property="totalAmount"/>
+			<columnOverride column="ORDER_AMOUNT_TYPE" property="amountType"/>
+			<columnOverride column="ORDER_TYPE_MOENY" property="typeMoeny"/>
+			<columnOverride column="CUST_ID" property="custId"/>
+			<columnOverride column="ORDER_CERT_TYPE" property="certType"/>
+			<columnOverride column="CONTRACT_CODE" property="contractCode"/>
+			<columnOverride column="ORDER_DEPOSIT_MEMO" property="depositMemo"/>
+			<columnOverride column="ORDER_DEPOSIT_STATUS" property="depositStatus"/>
+			<columnOverride column="ORDER_DEPOSITPAY_ACCOUNT" property="depositpayAccount"/>
+			<columnOverride column="ORDER_REFUND_ACCOUNT" property="refundAccount"/>
+			<columnOverride column="ORDER_PHONE" property="phone"/>
+			<columnOverride column="ORDER_EXE_ACCOUNT" property="exeAccount"/>
+			<columnOverride column="ORDER_DEPOSIT_REMEMO" property="depositRememo"/>
+			<columnOverride column="ORDER_DEPOSIT_RETURN" property="depositReturn"/>
+			<columnOverride column="ORDER_AMOUNT_RETURN" property="amountReturn"/>
+			<columnOverride column="ORDER_OVER_DATE" property="overDate"/>
+			<columnOverride column="ORDER_CERT_IMAGE" property="certImage"/>
+			<columnOverride column="ORDER_CERT_IMAGE1" property="certImage1"/>
+			<columnOverride column="ORDER_NEXT_ORDER" property="nextOrder"/>
+			<columnOverride column="ORDER_NEXT_END_DATE" property="nextEndDate"/>
+			<columnOverride column="ORDER_NEXT_AMOUNT" property="nextAmount"/>
+			<columnOverride column="ORDER_RETURN_CELL_TIME" property="returnCellTime"/>
+			<columnOverride column="ORDER_NUMBER" property="number"/>
+			<columnOverride column="ORDER_UNIT" property="unit"/>
+			<columnOverride column="ORDER_IS_DISPLAY" property="isDisplay"/>
+			<columnOverride column="ORDER_TOTAL_TIMES" property="totalTimes"/>
+		</table>
+		<table tableName="wss_message" domainObjectName="Message" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="mess_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="mess_id" property="id"/>
+			<columnOverride column="mess_title" property="title"/>
+			<columnOverride column="mess_memo" property="memo"/>
+			<columnOverride column="mess_image" property="image"/>
+			<columnOverride column="mess_text" property="text"/>
+			<columnOverride column="wcms_id" property="wcmsId"/>
+			<columnOverride column="mess_mode" property="mode"/>
+			<columnOverride column="mess_type" property="type"/>
+			<columnOverride column="mess_create_time" property="createTime"/>
+			<columnOverride column="mess_update_time" property="updateTime"/>
+			<columnOverride column="mess_publish_time" property="publishTime"/>
+			<columnOverride column="mess_status" property="status"/>
+			<columnOverride column="mess_has_location" property="hasLocation"/>
+			<columnOverride column="mess_has_userlist" property="hasUserlist"/>
+			<columnOverride column="mess_has_discuss" property="hasDiscuss"/>
+			<columnOverride column="mess_is_to_all" property="isToAll"/>
+			<columnOverride column="mess_group_ids" property="messGroupIds"/>
+			<columnOverride column="mess_group_names" property="messGroupNames"/>
+		</table>
+		<table tableName="wss_weixin_group" domainObjectName="WeixinGroup" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="wegr_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="wegr_id" property="id"/>
+			<columnOverride column="wegr_code" property="code"/>
+			<columnOverride column="wegr_name" property="name"/>
+			<columnOverride column="wegr_scene_str" property="sceneStr"/>
+			<columnOverride column="wegr_ticket" property="ticket"/>
+			<columnOverride column="wegr_url" property="url"/>
+		</table>
+		<table tableName="wss_message_receive" domainObjectName="MessageReceive" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="mere_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="mere_id" property="id"/>
+			<columnOverride column="mess_id" property="messageId"/>
+			<columnOverride column="mess_sub_id" property="messageSubId"/>
+			<columnOverride column="mere_open_id" property="openId"/>
+			<columnOverride column="mere_create_time" property="createTime"/>
+			<columnOverride column="mere_ip" property="ip"/>
+			<columnOverride column="mere_longi" property="longi"/>
+			<columnOverride column="mere_lati" property="lati"/>
+			<columnOverride column="mere_location" property="location"/>
+		</table>
+		<table tableName="wss_message_statistics" domainObjectName="MessageStatistics" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="mest_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="mest_id" property="id"/>
+			<columnOverride column="mess_id" property="messageId"/>
+			<columnOverride column="mess_sub_id" property="messageSubId"/>
+			<columnOverride column="mest_open_id" property="openId"/>
+			<columnOverride column="mest_create_time" property="createTime"/>
+			<columnOverride column="mest_ip" property="ip"/>
+			<columnOverride column="mest_longi" property="longi"/>
+			<columnOverride column="mest_lati" property="lati"/>
+			<columnOverride column="mest_location" property="location"/>
+		</table>
+		<table tableName="wss_message_discuss" domainObjectName="MessageDiscuss" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="medi_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="medi_id" property="id"/>
+			<columnOverride column="medi_open_id" property="openId"/>
+			<columnOverride column="mess_id" property="messageId"/>
+			<columnOverride column="mess_sub_id" property="messageSubId"/>
+			<columnOverride column="medi_create_time" property="createTime"/>
+			<columnOverride column="medi_content" property="content"/>
+		</table>
+		<table tableName="wss_weixin_member" domainObjectName="WeixinMember" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="weme_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="weme_id" property="id"/>
+			<columnOverride column="weme_name" property="name"/>
+			<columnOverride column="weme_nickname" property="nickname"/>
+			<columnOverride column="weme_mobile" property="mobile"/>
+			<columnOverride column="weme_gender" property="gender"/>
+			<columnOverride column="weme_email" property="email"/>
+			<columnOverride column="weme_avatar" property="avatar"/>
+			<columnOverride column="weme_status" property="status"/>
+			<columnOverride column="weme_regdate" property="regdate"/>
+			<columnOverride column="weme_addr" property="addr"/>
+			<columnOverride column="weme_scene_str" property="sceneStr"/>
+			<columnOverride column="open_id" property="openId"/>
+			<columnOverride column="weme_memo" property="memo"/>
+			<columnOverride column="weme_group_id" property="groupId"/>
+			<columnOverride column="weme_isdel" property="isdel"/>
+		</table>
+		<table tableName="wss_attention_response" domainObjectName="AttentionResponse4Wss" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="atre_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="atre_id" property="id"/>
+			<columnOverride column="resp_id" property="respId"/>
+			<columnOverride column="atre_keyword" property="keyword"/>
+		</table>
+		<table tableName="wss_keyword_response" domainObjectName="KeywordResponse4Wss" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="kere_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="kere_id" property="id"/>
+			<columnOverride column="kere_keyword" property="keyword"/>
+			<columnOverride column="resp_id" property="respId"/>
+		</table>
+		<table tableName="wss_response" domainObjectName="Response4Wss" enableInsert="true"
+							   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+							   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+							   enableDeleteByExample="false" enableCountByExample="false"
+							   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="resp_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="resp_id" property="id"/>
+			<columnOverride column="resp_content_type" property="contentType"/>
+			<columnOverride column="resp_xml_content" property="xmlContent"/>
+			<columnOverride column="resp_content" property="content"/>
+			<columnOverride column="nete_id" property="newsTemplateId"/>
+			<columnOverride column="nete_name" property="newsTemplateName"/>
+		</table>
+		<table tableName="wss_menu" domainObjectName="Menu4Wss" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="menu_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="menu_id" property="id"/>
+			<columnOverride column="menu_parent_id" property="parentId"/>
+			<columnOverride column="menu_order" property="order"/>
+			<columnOverride column="menu_level" property="level"/>
+			<columnOverride column="menu_name" property="name"/>
+			<columnOverride column="resp_id" property="respId"/>
+			<columnOverride column="menu_url" property="url"/>
+			<columnOverride column="menu_type" property="type"/>
+			<columnOverride column="menu_url_type" property="urlType"/>
+		</table>
+		<table tableName="weigate_supperman" domainObjectName="SuperMan" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="sumA_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="sumA_id" property="id"/>
+			<columnOverride column="member_id" property="memberId"/>
+		</table>
+		<table tableName="weigate_door_record" domainObjectName="DoorRecord" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="dore_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="dore_id" property="id"/>
+			<columnOverride column="dore_user_id" property="userId"/>
+			<columnOverride column="door_id" property="doorId"/>
+			<columnOverride column="dore_time" property="time"/>
+			<columnOverride column="dore_open_type" property="openType"/>
+		</table>
+		<table tableName="weigate_supperman" domainObjectName="Supperman" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="suma_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="suma_id" property="id"/>
+			<columnOverride column="member_id" property="memberId"/>
+		</table>
+		<table tableName="weigate_door" domainObjectName="Door" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="door_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="door_id" property="id"/>
+			<columnOverride column="comm_id" property="communityId"/>
+			<columnOverride column="door_lati" property="lati"/>
+			<columnOverride column="door_longi" property="longi"/>
+			<columnOverride column="door_verify_distance" property="verifyDistance"/>
+			<columnOverride column="device_No" property="deviceNo"/>
+			<columnOverride column="door_status" property="status"/>
+			<columnOverride column="door_isdel" property="isdel"/>
+		</table>
+		<table tableName="weigate_cabi" domainObjectName="Cabi" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="cabi_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="cabi_id" property="id"/>
+			<columnOverride column="waho_id" property="wahoId"/>
+			<columnOverride column="cabinet_no" property="cabinetNo"/>
+			<columnOverride column="cabi_isdel" property="isdel"/>
+			<columnOverride column="cabi_last_access_time" property="lastAccessTime"/>
+		</table>
+		<table tableName="weigate_cabinet_record" domainObjectName="CabinetRecord" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="care_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="care_id" property="id"/>
+			<columnOverride column="order_id" property="orderId"/>
+			<columnOverride column="cabinet_id" property="cabinetId"/>
+			<columnOverride column="wahoce_id" property="wahoceId"/>
+			<columnOverride column="care_create_time" property="createTime"/>
+			<columnOverride column="care_query_time" property="queryTime"/>
+			<columnOverride column="care_cabinet_status" property="cabinetStatus"/>
+			<columnOverride column="care_operator" property="operator"/>
+			<columnOverride column="care_return_time" property="returnTime"/>
+			<columnOverride column="care_return_status" property="returnStatus"/>
+		</table>
+		<table tableName="weigate_device" domainObjectName="Device" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="device_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="device_id" property="id"/>
+			<columnOverride column="comm_id" property="communityId"/>
+			<columnOverride column="device_nettype" property="nettype"/>
+			<columnOverride column="device_remain_data" property="remainData"/>
+			<columnOverride column="device_mobile" property="mobile"/>
+			<columnOverride column="device_net_provider" property="netProvider"/>
+		</table>
+		<table tableName="weigate_device_recharge" domainObjectName="DeviceRecharge" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="dere_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="dere_id" property="id"/>
+			<columnOverride column="device_id" property="deviceId"/>
+			<columnOverride column="dere_time" property="time"/>
+			<columnOverride column="dere_data" property="data"/>
+			<columnOverride column="dere_amount" property="amount"/>
+		</table>
+		<table tableName="wcms_news_attachment" domainObjectName="NewsAttachment" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="neat_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="neat_id" property="id"/>
+			<columnOverride column="neat_title" property="title"/>
+			<columnOverride column="neat_file_format" property="fileFormat"/>
+			<columnOverride column="neat_real_url" property="realUrl"/>
+			<columnOverride column="neat_swf_url" property="swfUrl"/>
+			<columnOverride column="neat_create_time" property="createTime"/>
+			<columnOverride column="neat_isdel" property="isdel"/>
+		</table>
+		<table tableName="wcms_document" domainObjectName="Document" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="doc_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="doc_id" property="id"/>
+			<columnOverride column="doc_title" property="title"/>
+			<columnOverride column="doc_memo" property="memo"/>
+			<columnOverride column="doc_create_time" property="createTime"/>
+			<columnOverride column="doc_type" property="type"/>
+			<columnOverride column="doc_format" property="format"/>
+			<columnOverride column="doc_video_id" property="videoId"/>
+			<columnOverride column="doc_src" property="src"/>
+			<columnOverride column="doc_group_id" property="groupId"/>
+			<columnOverride column="doc_path" property="path"/>
+		</table>
+		<table tableName="wcms_news_template" domainObjectName="NewsTemplate" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="nete_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="nete_id" property="id"/>
+			<columnOverride column="nete_name" property="name"/>
+			<columnOverride column="nete_create_time" property="createTime"/>
+			<columnOverride column="nete_isdel" property="isdel"/>
+			<columnOverride column="nete_media_id" property="mediaId"/>
+		</table>
+		<table tableName="wcms_news_item" domainObjectName="NewsItem" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="neit_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="neit_id" property="id"/>
+			<columnOverride column="neit_type" property="type"/>
+			<columnOverride column="neit_author" property="author"/>
+			<columnOverride column="neit_memo" property="memo"/>
+			<columnOverride column="neit_content" property="content"/>
+			<columnOverride column="nete_id" property="neteId"/>
+			<columnOverride column="neit_image" property="image"/>
+			<columnOverride column="neit_title" property="title"/>
+			<columnOverride column="neit_url" property="url"/>
+			<columnOverride column="neit_create_time" property="createTime"/>
+			<columnOverride column="neit_order" property="order"/>
+			<columnOverride column="neit_isdel" property="isdel"/>
+			<columnOverride column="thumb_media_id" property="thumbMediaId"/>
+		</table>
+		<table tableName="wcms_article_category" domainObjectName="ArticleCategory" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="arca_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="arca_id" property="id"/>
+			<columnOverride column="arca_title" property="title"/>
+			<columnOverride column="arca_parent_id" property="parentId"/>
+			<columnOverride column="arca_isdel" property="isdel"/>
+		</table>
+		<table tableName="wcms_article" domainObjectName="Article" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="arti_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="arti_id" property="id"/>
+			<columnOverride column="arti_type" property="type"/>
+			<columnOverride column="arti_author" property="author"/>
+			<columnOverride column="arti_memo" property="memo"/>
+			<columnOverride column="arti_desc" property="desc"/>
+			<columnOverride column="arti_waiting_memo" property="waitingMemo"/>
+			<columnOverride column="arti_content" property="content"/>
+			<columnOverride column="arti_waiting_content" property="waitingContent"/>
+			<columnOverride column="arca_id" property="categoryId"/>
+			<columnOverride column="arti_image" property="image"/>
+			<columnOverride column="arti_title" property="title"/>
+			<columnOverride column="arti_url" property="url"/>
+			<columnOverride column="arti_create_time" property="createTime"/>
+			<columnOverride column="arti_publish_status" property="publishStatus"/>
+			<columnOverride column="arti_check_status" property="checkStatus"/>
+		</table>
+		<table tableName="whc_immediate_wahoce_price" domainObjectName="ImmediateWahocePrice" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="imwapr_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="imwapr_id" property="id"/>
+			<columnOverride column="waho_id" property="wahoId"/>
+			<columnOverride column="imwapr_beigin_time" property="beginTime"/>
+			<columnOverride column="imwapr_end_time" property="endTime"/>
+			<columnOverride column="imwapr_create_time" property="createTime"/>
+			<columnOverride column="imwapr_size1_price" property="size1Price"/>
+			<columnOverride column="imwapr_size2_price" property="size2Price"/>
+			<columnOverride column="imwapr_size3_price" property="size3Price"/>
+			<columnOverride column="imwapr_size4_price" property="size4Price"/>
+			<columnOverride column="imwapr_size5_price" property="size5Price"/>
+			<columnOverride column="imwapr_size6_price" property="size6Price"/>
+			<columnOverride column="imwapr_size7_price" property="size7Price"/>
+			<columnOverride column="imwapr_size8_price" property="size8Price"/>
+			<columnOverride column="imwapr_isdel" property="isdel"/>
+			<columnOverride column="imwapr_unit" property="unit"/>
+		</table>
+		<table tableName="whc_warehouse_cell" domainObjectName="WarehouseCell">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="WAHOCE_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="WAHOCE_ID" property="id"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="WAHOCE_NUMBER" property="number"/>
+			<columnOverride column="WAHOCE_SIZE" property="size"/>
+			<columnOverride column="WAHOCE_IMAGE1" property="image1"/>
+			<columnOverride column="WAHOCE_IMAGE2" property="image2"/>
+			<columnOverride column="WAHOCE_IMAGE3" property="image3"/>
+			<columnOverride column="WAHOCE_STATUS" property="status"/>
+			<columnOverride column="WAHOCE_INTRODUCE" property="introduce"/>
+			<columnOverride column="WAHOCE_TYPE" property="type"/>
+			<columnOverride column="WAHOCE_PRICE" property="price"/>
+			<columnOverride column="WAHOCE_DISCOUNT_PRICE" property="discountPrice"/>
+			<columnOverride column="WAHOCE_DPRICE" property="dprice"/>
+			<columnOverride column="WAHOCE_DISCOUNT_DPRICE" property="discountDprice"/>
+			<columnOverride column="CABINET_ID" property="cabinetId"/>
+			<columnOverride column="WAHOCE_KIND" property="kind"/>
+		</table>
+		<table tableName="whc_warehouse" domainObjectName="Warehouse" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="WAHO_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="WAHO_ID" property="id"/>
+			<columnOverride column="WAHO_NAME" property="name"/>
+			<columnOverride column="WAHOCE_NUMBER" property="number"/>
+			<columnOverride column="WAHO_PROVINCE" property="province"/>
+			<columnOverride column="WAHO_CITY" property="city"/>
+			<columnOverride column="WAHO_ADDR" property="addr"/>
+			<columnOverride column="WAHO_STATUS" property="status"/>
+			<columnOverride column="WAHO_TYPE" property="type"/>
+			<columnOverride column="WAHO_AREA" property="area"/>
+			<columnOverride column="WAHO_IMAGE1" property="image1"/>
+			<columnOverride column="WAHO_IMAGE2" property="image2"/>
+			<columnOverride column="WAHO_IMAGE3" property="image3"/>
+			<columnOverride column="WAHO_INTRODUCE" property="introduce"/>
+			<columnOverride column="WAHO_PERS_ID" property="persId"/>
+			<columnOverride column="WAHO_PREFERENTIAL" property="preferential"/>
+			<columnOverride column="WAHO_LONG" property="longi"/>
+			<columnOverride column="WAHO_LATI" property="lati"/>
+			<columnOverride column="WAHO_BRIADDR" property="briaddr"/>
+			<columnOverride column="WAHO_DIS_LEVEL1" property="disLevel1"/>
+			<columnOverride column="WAHO_DIS_LEVEL2" property="disLevel2"/>
+			<columnOverride column="WAHO_DIS_LEVEL3" property="disLevel3"/>
+			<columnOverride column="WAHO_IMAGE4" property="image4"/>
+			<columnOverride column="WAHO_IMAGE5" property="image5"/>
+			<columnOverride column="WAHO_IMAGE6" property="image6"/>
+			<columnOverride column="WAHO_IMAGE7" property="image7"/>
+			<columnOverride column="WAHO_ADV1" property="adv1"/>
+			<columnOverride column="WAHO_ADV2" property="adv2"/>
+			<columnOverride column="WAHO_SMONTH_PRICE" property="smonthPrice"/>
+			<columnOverride column="WAHO_SDAY_PRICE" property="sdayPrice"/>
+			<columnOverride column="WAHO_MMONTH_PRICE" property="mmonthPrice"/>
+			<columnOverride column="WAHO_MDAY_PRICE" property="mdayPrice"/>
+			<columnOverride column="WAHO_BMONTH_PRICE" property="bmonthPrice"/>
+			<columnOverride column="WAHO_BDAY_PRICE" property="bdayPrice"/>
+			<columnOverride column="WAHO_CMONTH_PRICE" property="cmonthPrice"/>
+			<columnOverride column="WAHO_CDAY_PRICE" property="cdayPrice"/>
+			<columnOverride column="WAHO_RMONTH_PRICE" property="rmonthPrice"/>
+			<columnOverride column="WAHO_RDAY_PRICE" property="rdayPrice"/>
+			<columnOverride column="WAHO_LMONTH_PRICE" property="lmonthPrice"/>
+			<columnOverride column="WAHO_LDAY_PRICE" property="ldayPrice"/>
+			<columnOverride column="WAHO_INTELLIGENT_IMAGE" property="intelligentImage"/>
+			<columnOverride column="WAHO_IMMEDIATE_IMAGE" property="immediateImage"/>
+			<columnOverride column="WAHO_QRCODE_URL" property="qrcodeUrl"/>
+			<columnOverride column="WAHO_PRICE_INTRO" property="priceIntro"/>
+			<columnOverride column="WAHO_HOUR_START" property="hourStart"/>
+			<columnOverride column="WAHO_HOUR_RENEW" property="hourRenew"/>
+			<columnOverride column="WAHO_DAY_START" property="dayStart"/>
+			<columnOverride column="WAHO_DAY_RENEW" property="dayRenew"/>
+			<columnOverride column="WAHO_MONTH_START" property="monthStart"/>
+			<columnOverride column="WAHO_MONTH_RENEW" property="monthRenew"/>
+			<columnOverride column="WAHO_PROPERTY_TYPE" property="propertyType"/>
+			<columnOverride column="WAHO_IMAGEQRCODE" property="imageQrcode"/>
+			<columnOverride column="WAHO_ADV3" property="adv3"/>
+			<columnOverride column="WAHO_WECHATPUBLICNUMBER" property="wechatPublicNumber"/>
+			<columnOverride column="WAHO_ONLINE_DATE" property="onlineDate"/>
+			<columnOverride column="WAHO_CONTACTOR" property="contactor"/>
+			<columnOverride column="WAHO_OPENING_TIME" property="openingTime"/>
+			<columnOverride column="WAHO_PROJ_ID" property="projId"/>
+			<columnOverride column="WAHO_COLSING_TIME" property="colsingTime"/>
+			<columnOverride column="WAHO_CABINET_GROUP" property="cabinetGroup"/>
+			<columnOverride column="WAHO_CABINET_NUMBER" property="cabinetNumber"/>
+			<columnOverride column="WAHO_BUSINE_HOURS" property="busineHours"/>
+			<columnOverride column="WAHO_IS_CHECK" property="isCheck"/>
+			<columnOverride column="WAHO_QRCODE_URL_OLD" property="qrcodeUrlOld"/>
+		</table>
+		<table tableName="whc_order_renew" domainObjectName="OrderRenew" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="ORRE_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="ORRE_ID" property="id"/>
+			<columnOverride column="ORDER_ID" property="orderId"/>
+			<columnOverride column="ORRE_START_DATE" property="startDate"/>
+			<columnOverride column="ORRE_END_DATE" property="endDate"/>
+			<columnOverride column="ORRE_DATE" property="date"/>
+			<columnOverride column="ORRE_MONEY" property="money"/>
+			<columnOverride column="ORRE_STATUS" property="status"/>
+			<columnOverride column="ORRE_PAYMENT_TYPE" property="paymentType"/>
+			<columnOverride column="ORRE_PAYMENT_ACCOUNT" property="paymentAccount"/>
+			<columnOverride column="ORRE_OPERID" property="operId"/>
+			<columnOverride column="ORRE_MEMO" property="memo"/>
+			<columnOverride column="ORRE_ACCOUNT_NUMBER" property="accountNumber"/>
+		</table>
+	-->
+<!--		<table tableName="weigate_cabinet" domainObjectName="Cabinet"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="CABINET_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="CABINET_ID" property="id"/>
+			<columnOverride column="CABINET_NO" property="no"/>
+			<columnOverride column="CABINET_STATUS" property="status"/>
+			<columnOverride column="CABINET_ISDEL" property="isDel"/>
+			<columnOverride column="CABINET_PASSWORD" property="password"/>
+			<columnOverride column="CABINET_DOOR_NO" property="doorNo"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="CABINET_SUPPER_PASSWORD" property="supperPassword"/>
+			<columnOverride column="CABI_ID" property="cabiId"/>
+			<columnOverride column="WAHOCE_ID" property="wahoceId"/>
+			<columnOverride column="CABINET_OPEN_TIME" property="openTime"/>
+			<columnOverride column="CABINET_CLOS_TIME" property="closTime"/>
+			<columnOverride column="CABINET_STATE_LOCK" property="stateLock"/>
+		</table>-->
+
+<!--		<table tableName="whc_voucher" domainObjectName="Voucher" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="VOUCHER_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="VOUCHER_ID" property="id"/>
+			<columnOverride column="VOUCHER_NAME" property="name"/>
+			<columnOverride column="VOUCHER_CATE" property="cate"/>
+			<columnOverride column="VOUCHER_AMOUNT" property="amount"/>
+			<columnOverride column="VOUCHER_VERIFYCODE" property="verifyCode"/>
+			<columnOverride column="VOUCHER_UNIT" property="unit"/>
+			<columnOverride column="MEMBER_ID" property="memberId"/>
+			<columnOverride column="MEMBER_NAME" property="memberName"/>
+			<columnOverride column="MEMBER_MOBILE" property="memberMobile"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="WAHOCE_NO" property="wahoceNo"/>
+			<columnOverride column="VOUCHER_VALIDFROM" property="validFrom"/>
+			<columnOverride column="VOUCHER_VALIDTO" property="validTo"/>
+			<columnOverride column="VOUCHER_STATUS" property="status"/>
+			<columnOverride column="VOUCHER_CREATE_TIME" property="createTime"/>
+			<columnOverride column="VOUCHER_ACTIVE_TIME" property="activeTime"/>
+			<columnOverride column="VOUCHER_USED_TIME" property="usedTime"/>
+			<columnOverride column="VOUCHER_CANCEL_TIME" property="cancelTime"/>
+			<columnOverride column="VOUCHER_MEMO" property="memo"/>
+			<columnOverride column="ORDER_ID" property="oorderId"/>
+			<columnOverride column="VOUCHER_CODE" property="code"/>
+			<columnOverride column="VOUCHER_ORDERID" property="orderId"/>
+		</table>-->
+<!--		<table tableName="whc_member" domainObjectName="Member">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="MEMBER_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="MEMBER_ID" property="id"/>
+			<columnOverride column="MEMBER_NAME" property="name"/>
+			<columnOverride column="MEMBER_PHOTO" property="photo"/>
+			<columnOverride column="MEMBER_NICKNAME" property="nickName"/>
+			<columnOverride column="MEMBER_ADDR" property="addr"/>
+			<columnOverride column="MEMBER_TEL" property="tel"/>
+			<columnOverride column="MEMBER_EMAIL" property="email"/>
+			<columnOverride column="MEMBER_REGDATE" property="regDate"/>
+			<columnOverride column="MEMBER_ISDEL" property="isDel"/>
+			<columnOverride column="MEMBER_SEX" property="sex"/>
+			<columnOverride column="MEMBER_MEMO" property="memo"/>
+			<columnOverride column="OPEN_ID" property="openId"/>
+			<columnOverride column="MEMBER_WEIGATE_STATUS" property="weigateStatus"/>
+			<columnOverride column="MEMBER_STATUS" property="status"/>
+			<columnOverride column="MEMBER_SOURCE" property="source"/>
+			<columnOverride column="MEMBER_IS_SUB" property="isSub"/>
+			<columnOverride column="MEMBER_CERT_TYPE" property="certType"/>
+			<columnOverride column="MEMBER_ID_NUMBER" property="idNumber"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="MEMBER_AGAIN_TIME" property="againTime"/>
+		</table>
+		<table tableName="whc_member_user" domainObjectName="MemberUser" enableInsert="true"
+			   enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			   enableDeleteByPrimaryKey="false" enableSelectByExample="false"
+			   enableDeleteByExample="false" enableCountByExample="false"
+			   enableUpdateByExample="false" >
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="member_user_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="member_user_id" property="id"/>
+			<columnOverride column="member_id" property="memberId"/>
+			<columnOverride column="user_id" property="userId"/>
+		</table>-->
+		<!--
+		<table tableName="weigate_cabinet" domainObjectName="Cabinet">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="CABINET_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="CABINET_ID" property="id"/>
+			<columnOverride column="CABI_ID" property="cabiId"/>
+			<columnOverride column="WAHOCE_ID" property="wahoceId"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="CABINET_NO" property="no"/>
+			<columnOverride column="CABINET_STATUS" property="status"/>
+			<columnOverride column="CABINET_ISDEL" property="isDel"/>
+			<columnOverride column="CABINET_PASSWORD" property="password"/>
+			<columnOverride column="CABINET_DOOR_NO" property="doorNo"/>
+			<columnOverride column="CABINET_SUPPER_PASSWORD" property="supperPassword"/>
+			<columnOverride column="CABINET_OPEN_TIME" property="openTime"/>
+			<columnOverride column="CABINET_CLOS_TIME" property="closTime"/>
+			<columnOverride column="CABINET_STATE_LOCK" property="stateLock"/>
+		</table>
+		<table tableName="weigate_cabi" domainObjectName="Cabi">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="CABI_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="CABI_ID" property="id"/>
+			<columnOverride column="WAHO_ID" property="wahoId"/>
+			<columnOverride column="CABINET_NO" property="cabinetNo"/>
+			<columnOverride column="CABI_ISDEL" property="isDel"/>
+			<columnOverride column="CABI_LAST_ACCESS_TIME" property="lastAccessTime"/>
+		</table>
+		<table tableName="weigate_cabinet_record" domainObjectName="CabinetRecord">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="CARE_ID" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="CARE_ID" property="id"/>
+			<columnOverride column="ORDER_ID" property="orderId"/>
+			<columnOverride column="CABINET_ID" property="cabinetId"/>
+			<columnOverride column="WAHOCE_ID" property="wahoceId"/>
+			<columnOverride column="CARE_CREATE_TIME" property="createTime"/>
+			<columnOverride column="CARE_QUERY_TIME" property="queryTime"/>
+			<columnOverride column="CARE_CABINET_STATUS" property="cabinetStatus"/>
+			<columnOverride column="CARE_OPERATOR" property="operator"/>
+			<columnOverride column="CARE_RETURN_TIME" property="returnTime"/>
+			<columnOverride column="CARE_RETURN_STATUS" property="returnStatus"/>
+			<columnOverride column="CARE_OPEN_TIME" property="openTime"/>
+			<columnOverride column="CARE_CLOS_TIME" property="closTime"/>
+			<columnOverride column="CARE_STATE_LOCK" property="stateLock"/>
+		</table>
+		-->
+		<!--
+		<table tableName="whc_wahoce_type_price" domainObjectName="WahoceTypePrice">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="watypr_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="watypr_id" property="id"/>
+			<columnOverride column="waho_id" property="wahoId"/>
+			<columnOverride column="waty_id" property="watyId"/>
+			<columnOverride column="watypr_month_price" property="monthPrice"/>
+			<columnOverride column="watypr_day_price" property="dayPrice"/>
+			<columnOverride column="watypr_half_price" property="halfPrice"/>
+			<columnOverride column="watypr_year_price" property="yearPrice"/>
+			<columnOverride column="watypr_special_price" property="specialPrice"/>
+			<columnOverride column="watypr_time_price" property="timePrice"/>
+			<columnOverride column="watypr_deposit_price" property="depositPrice"/>
+		</table>
+		<table tableName="whc_immediate_wahoce_price" domainObjectName="ImmediateWahocePrice">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="imwapr_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="imwapr_id" property="id"/>
+			<columnOverride column="waho_id" property="wahoId"/>
+			<columnOverride column="imwapr_beigin_time" property="beginTime"/>
+			<columnOverride column="imwapr_end_time" property="endTime"/>
+			<columnOverride column="imwapr_create_time" property="createTime"/>
+			<columnOverride column="imwapr_size1_price" property="size1Price"/>
+			<columnOverride column="imwapr_size2_price" property="size2Price"/>
+			<columnOverride column="imwapr_size3_price" property="size3Price"/>
+			<columnOverride column="imwapr_size4_price" property="size4Price"/>
+			<columnOverride column="imwapr_size5_price" property="size5Price"/>
+			<columnOverride column="imwapr_size6_price" property="size6Price"/>
+			<columnOverride column="imwapr_size7_price" property="size7Price"/>
+			<columnOverride column="imwapr_size8_price" property="size8Price"/>
+			<columnOverride column="imwapr_isdel" property="isDel"/>
+			<columnOverride column="imwapr_unit" property="unit"/>
+		</table>
+		-->
+		<!--
+		<table tableName="WHC_INTELLIGENCE_WAHOCE_PRICE" domainObjectName="IntelligenceWahocePrice">
+			<property name="useActualColumnNames" value="false" />
+			<generatedKey column="inwapr_id" sqlStatement="select sys_guid() from dual"/>
+			<columnOverride column="inwapr_id" property="id"/>
+			<columnOverride column="waho_id" property="wahoId"/>
+			<columnOverride column="inwapr_beigin_time" property="beginTime"/>
+			<columnOverride column="inwapr_end_time" property="endTime"/>
+			<columnOverride column="inwapr_create_time" property="createTime"/>
+			<columnOverride column="inwapr_size1_price" property="size1Price"/>
+			<columnOverride column="inwapr_size2_price" property="size2Price"/>
+			<columnOverride column="inwapr_size3_price" property="size3Price"/>
+			<columnOverride column="inwapr_size4_price" property="size4Price"/>
+			<columnOverride column="inwapr_size5_price" property="size5Price"/>
+			<columnOverride column="inwapr_size6_price" property="size6Price"/>
+			<columnOverride column="inwapr_size7_price" property="size7Price"/>
+			<columnOverride column="inwapr_size8_price" property="size8Price"/>
+			<columnOverride column="inwapr_isdel" property="isDel"/>
+		</table>
+		-->
+
+	</context>
+</generatorConfiguration>  
